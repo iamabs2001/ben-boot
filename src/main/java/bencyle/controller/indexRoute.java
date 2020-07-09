@@ -11,6 +11,7 @@ public class indexRoute {
 		return "index";
 	}
 	
+	
 	@RequestMapping("/add")
 	public String adduser() {
 		return "adduser";	
