@@ -12,7 +12,7 @@ public class BencyleApplication extends SpringBootServletInitializer {
 	public SpringApplicationBuilder configure(SpringApplicationBuilder app) {
 		return app.sources(BencyleApplication.class);
 	}
-	public	 static void main(String[] args) {
+	public static void main(String[] args) {
 		SpringApplication.run(BencyleApplication.class, args);
 	}
 

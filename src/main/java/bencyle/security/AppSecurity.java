@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
@@ -15,11 +16,9 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @EnableWebSecurity
-//@EnableOAuth2Sso
 public class AppSecurity extends WebSecurityConfigurerAdapter {
 	
 	@Bean
-	@Override
 	protected UserDetailsService userDetailsService() {		
 		List<UserDetails> users = new ArrayList<>();
 		users.add(User.withDefaultPasswordEncoder().username("sigma").password("hero").roles("USER").build());
@@ -28,6 +27,12 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
 		users.add(User.withDefaultPasswordEncoder().username("user").password("hero").roles("USER").build());
 		return new InMemoryUserDetailsManager(users);
 	}
+	
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		 
+	}
+	
 
 }
 				
